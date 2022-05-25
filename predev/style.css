@@ -1,0 +1,51 @@
+/* =========================== Import Fonts =========================== */
+@import url('https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Iceland&display=swap');
+
+/* =========================== Reset Styles =========================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    color: rgb(255, 255, 255);
+    font-family: 'Raleway';
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+.wrapper {
+    min-height: 100%;
+    overflow: hidden;
+}
+
+
+/* =========================== Styles =========================== */
+[class*='__container'] {
+    max-width: 1800px;
+    margin: 0 auto;
+}
+
+.header {
+    padding-top: 40px;
+}
+
+.header__body {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+
+.header__logo {
+    padding: 12px;
+    background: rgba(58, 58, 58, 0.63);
+    border-radius: 10px;
+}
+
+.header__signin {}
