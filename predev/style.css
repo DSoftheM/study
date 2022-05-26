@@ -28,6 +28,8 @@ ul {
 
 [class*='__container'] {
     max-width: 1600px;
+    margin: 0 -15px;
+    padding: 0 15px;
     margin: 0 auto;
 }
 
@@ -62,14 +64,61 @@ ul {
 
 .center {
     flex-grow: 1;
+    /* position: relative; */
     display: flex;
-    justify-content: center;
-    align-items: center;
+    /* justify-content: center;
+    align-items: center; */
 }
 
-.center__body {}
+.center.move .center__text {
+    animation: moveAnim 1s ease 0s 1 forwards;
+}
+
+.center.moveReversed .center__text {
+    animation: moveAnimReversed 1s ease 0s 1 forwards;
+}
+
+@keyframes moveAnim {
+    0% {
+        left: 50%;
+        width: 1250px;
+    }
+
+    100% {
+        left: 75%;
+        width: 640px;
+    }
+}
+
+@keyframes moveAnimReversed {
+    0% {
+        left: 75%;
+        width: 640px;
+    }
+
+    100% {
+        left: 50%;
+        width: 1250px;
+    }
+}
+
+.center.move {
+    /* justify-content: flex-end;
+    align-items: flex-end; */
+}
+
+.center__body {
+    flex-grow: 1;
+    width: 100%;
+}
 
 .center__text {
+    position: relative;
+    top: 50%;
+    left: 50%;
+    /* transform: translate(-50%); */
+    display: inline-block;
+    transform: translateX(-50%);
     user-select: none;
     font-family: Iceland;
     font-size: 96px;
@@ -79,14 +128,16 @@ ul {
 
 .card {
     position: relative;
-    top: 510px;
+    /* top: 510px; */
+    /* transform: translateY(85%); */
     display: inline-block;
     margin-left: 60px;
     transition: all 0.3s ease 0s;
 }
 
-.card:hover {
-    top: 0px;
+.card:hover .body-card {
+    /* top: 0px; */
+    transform: translateY(-100%);
 }
 
 .card:hover .body-card__header::after {
@@ -104,6 +155,11 @@ ul {
 .card__container {}
 
 .card__body {
+    transition: all 0.3s ease 0s;
+    position: absolute;
+    left: 0px;
+    /* top: -600px; */
+    transform: translateY(-15%);
     display: inline-block;
     background: rgba(35, 39, 53, 0.753);
     box-shadow: 7px 0px 4px rgba(0, 0, 0, 0.25);
@@ -150,6 +206,8 @@ ul {
 
 .body-card__form {}
 
+/* =========================== Form =========================== */
+
 .form {}
 
 .form__input:not(:last-child) {
@@ -193,4 +251,47 @@ ul {
     line-height: 23px;
     text-decoration: underline;
 
+}
+
+/* =========================== Media =========================== */
+@media (max-width: 1440px) {
+    .center__text {
+        font-size: 80px;
+    }
+}
+
+@media (max-width: 1250px) {
+    .center__text {
+        text-align: center;
+        width: 100%;
+        font-size: 64px;
+    }
+
+    .body-card {
+        display: block;
+    }
+}
+
+@media (max-width: 890px) {
+    .center__text {
+        font-size: 42px;
+    }
+}
+
+@media (max-width: 630px) {
+    .center__text {
+        font-size: 24px;
+    }
+}
+
+@media (max-width: 1300px) {
+    .card__body {
+        padding: 45px;
+    }
+}
+
+@media (max-width: 1100px) {
+    .card__body {
+        padding: 30px;
+    }
 }
